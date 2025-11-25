@@ -118,7 +118,7 @@ Tidak ditemukan file lisensi di repositori. Tambahkan file `LICENSE` jika Anda i
 
 ## 📞 Kontak
 
-- Pemilik repositori / kontributor: Tambahkan info kontak atau username GitHub Anda di sini.
+- Pemilik repositori / kontributor: ilhamfandy17@gmail.com
 
 ---
 

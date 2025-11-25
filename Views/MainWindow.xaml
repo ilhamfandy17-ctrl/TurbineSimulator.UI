@@ -1,0 +1,229 @@
+﻿<Window x:Class="TurbineSimulator.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpf="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        Title="Turbine Sensor Simulator"
+        Width="1700" Height="950"
+        Background="White">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="420"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ======================================================
+             LEFT PANEL (SENSORS)
+        =======================================================-->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="5">
+
+                <!-- ============================= KISTLER ============================ -->
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0 0 0 20">
+                    <StackPanel>
+                        <TextBlock Text="Kistler 601C" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="Amplitude (A)" Margin="0 5 0 0"/>
+                        <Slider x:Name="SliderA_Kistler" Minimum="0" Maximum="10"
+                                ValueChanged="SliderA_Kistler_Changed"/>
+                        <TextBlock x:Name="TxtA_Kistler"/>
+
+                        <TextBlock Text="Frequency (F)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderF_Kistler" Minimum="100" Maximum="200000"
+                                ValueChanged="SliderF_Kistler_Changed"/>
+                        <TextBlock x:Name="TxtF_Kistler"/>
+
+                        <TextBlock Text="Decay (R)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderR_Kistler" Minimum="-5000" Maximum="0"
+                                ValueChanged="SliderR_Kistler_Changed"/>
+                        <TextBlock x:Name="TxtR_Kistler"/>
+
+                        <TextBlock Text="Phase (P)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderP_Kistler" Minimum="-180" Maximum="180"
+                                ValueChanged="SliderP_Kistler_Changed"/>
+                        <TextBlock x:Name="TxtP_Kistler"/>
+
+                        <Button Content="Rumus" Click="BtnKistlerFormula_Click" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- ============================= PAC ============================ -->
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0 0 0 20">
+                    <StackPanel>
+                        <TextBlock Text="PAC R15a" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="Amplitude (A)" Margin="0 5 0 0"/>
+                        <Slider x:Name="SliderA_PAC" Minimum="0" Maximum="10"
+                                ValueChanged="SliderA_PAC_Changed"/>
+                        <TextBlock x:Name="TxtA_PAC"/>
+
+                        <TextBlock Text="Frequency (F)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderF_PAC" Minimum="1000" Maximum="300000"
+                                ValueChanged="SliderF_PAC_Changed"/>
+                        <TextBlock x:Name="TxtF_PAC"/>
+
+                        <TextBlock Text="Decay (R)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderR_PAC" Minimum="-5000" Maximum="0"
+                                ValueChanged="SliderR_PAC_Changed"/>
+                        <TextBlock x:Name="TxtR_PAC"/>
+
+                        <TextBlock Text="Phase (P)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderP_PAC" Minimum="-180" Maximum="180"
+                                ValueChanged="SliderP_PAC_Changed"/>
+                        <TextBlock x:Name="TxtP_PAC"/>
+
+                        <Button Content="Rumus" Click="BtnPACFormula_Click" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- ============================= PCB ============================ -->
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0 0 0 20">
+                    <StackPanel>
+                        <TextBlock Text="PCB 333B50" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="Amplitude (A)" Margin="0 5 0 0"/>
+                        <Slider x:Name="SliderA_PCB" Minimum="0" Maximum="10"
+                                ValueChanged="SliderA_PCB_Changed"/>
+                        <TextBlock x:Name="TxtA_PCB"/>
+
+                        <TextBlock Text="Frequency (F)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderF_PCB" Minimum="10" Maximum="10000"
+                                ValueChanged="SliderF_PCB_Changed"/>
+                        <TextBlock x:Name="TxtF_PCB"/>
+
+                        <TextBlock Text="Decay (R)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderR_PCB" Minimum="-300" Maximum="0"
+                                ValueChanged="SliderR_PCB_Changed"/>
+                        <TextBlock x:Name="TxtR_PCB"/>
+
+                        <TextBlock Text="Phase (P)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderP_PCB" Minimum="-180" Maximum="180"
+                                ValueChanged="SliderP_PCB_Changed"/>
+                        <TextBlock x:Name="TxtP_PCB"/>
+
+                        <Button Content="Rumus" Click="BtnPCBFormula_Click" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- ============================= RESON ============================ -->
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0 0 0 20">
+                    <StackPanel>
+                        <TextBlock Text="Reson TC4013" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="Amplitude (A)" Margin="0 5 0 0"/>
+                        <Slider x:Name="SliderA_Reson" Minimum="0" Maximum="10"
+                                ValueChanged="SliderA_Reson_Changed"/>
+                        <TextBlock x:Name="TxtA_Reson"/>
+
+                        <TextBlock Text="Frequency (F)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderF_Reson" Minimum="20000" Maximum="150000"
+                                ValueChanged="SliderF_Reson_Changed"/>
+                        <TextBlock x:Name="TxtF_Reson"/>
+
+                        <TextBlock Text="Decay (R)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderR_Reson" Minimum="-2000" Maximum="0"
+                                ValueChanged="SliderR_Reson_Changed"/>
+                        <TextBlock x:Name="TxtR_Reson"/>
+
+                        <TextBlock Text="Phase (P)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderP_Reson" Minimum="-180" Maximum="180"
+                                ValueChanged="SliderP_Reson_Changed"/>
+                        <TextBlock x:Name="TxtP_Reson"/>
+
+                        <Button Content="Rumus" Click="BtnResonFormula_Click" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- ============================= SIEMENS ============================ -->
+                <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0 0 0 20">
+                    <StackPanel>
+                        <TextBlock Text="Siemens 5100W" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="Amplitude (A)" Margin="0 5 0 0"/>
+                        <Slider x:Name="SliderA_Siemens" Minimum="0" Maximum="10"
+                                ValueChanged="SliderA_Siemens_Changed"/>
+                        <TextBlock x:Name="TxtA_Siemens"/>
+
+                        <TextBlock Text="Frequency (F)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderF_Siemens" Minimum="1" Maximum="100"
+                                ValueChanged="SliderF_Siemens_Changed"/>
+                        <TextBlock x:Name="TxtF_Siemens"/>
+
+                        <TextBlock Text="Decay (R)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderR_Siemens" Minimum="-10" Maximum="0"
+                                ValueChanged="SliderR_Siemens_Changed"/>
+                        <TextBlock x:Name="TxtR_Siemens"/>
+
+                        <TextBlock Text="Phase (P)" Margin="5 5 0 0"/>
+                        <Slider x:Name="SliderP_Siemens" Minimum="-180" Maximum="180"
+                                ValueChanged="SliderP_Siemens_Changed"/>
+                        <TextBlock x:Name="TxtP_Siemens"/>
+
+                        <Button Content="Rumus" Click="BtnSiemensFormula_Click" Margin="0 10 0 0"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- ======================================================
+             TIME DOMAIN
+        =======================================================-->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="5">
+                <wpf:WpfPlot x:Name="PlotTime_Kistler" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotTime_PAC" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotTime_PCB" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotTime_Reson" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotTime_Siemens" Height="180"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- ======================================================
+             FREQUENCY DOMAIN
+        =======================================================-->
+        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="5">
+                <wpf:WpfPlot x:Name="PlotFreq_Kistler" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotFreq_PAC" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotFreq_PCB" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotFreq_Reson" Height="180"/>
+                <wpf:WpfPlot x:Name="PlotFreq_Siemens" Height="180"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- ======================================================
+             RIGHT PANEL (Hydropower + Rumus + S/Z Domain)
+        =======================================================-->
+        <StackPanel Grid.Column="3" Margin="10">
+
+            <!-- Hydropower Image -->
+            <Border BorderBrush="Black" BorderThickness="1" Height="200" Margin="0 0 0 10">
+                <Image Source="pack://application:,,,/Assets/hydropower.png"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- Rumus Gabungan -->
+            <Border BorderBrush="Black" BorderThickness="1" Padding="10" Margin="0 0 0 10">
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Text="Rumus Gabungan:"/>
+                    <TextBlock Text="R(t) = z1(t) + z2(t) + z3(t) + z4(t) + z5(t)"/>
+                </StackPanel>
+            </Border>
+
+            <!-- S Domain -->
+            <TextBlock Text="S Domain (pole)" FontWeight="Bold" Margin="0 0 0 5"/>
+            <wpf:WpfPlot x:Name="PlotSDomain" Height="200"/>
+
+            <!-- Z Domain -->
+            <TextBlock Text="Z Domain (pole/zero)" FontWeight="Bold" Margin="10 10 0 5"/>
+            <wpf:WpfPlot x:Name="PlotZDomain" Height="200"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

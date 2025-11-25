@@ -1,0 +1,48 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# Visual Studio profiler
+*.psess
+*.vsp
+
+# NuGet
+*.nupkg
+packages/
+
+# Resharper
+_ReSharper*/
+*__Resharper.*
+
+# Rider
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# JetBrains Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# User-specific files
+*.user
+*.userprefs
+
+# Publish directory
+publish/

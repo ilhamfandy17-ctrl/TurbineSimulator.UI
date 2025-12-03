@@ -122,9 +122,3 @@ Tidak ditemukan file lisensi di repositori. Tambahkan file `LICENSE` jika Anda i
 
 ---
 
-Jika Anda mau, saya juga bisa:
-- Menambahkan file `LICENSE` (pilih: MIT/Apache/GPL).
-- Menambahkan panduan pengembangan singkat atau screenshot / GIF pada README.
-- Menambahkan instruksi langkah-demi-langkah untuk membangun `TurbineSimulator.Core` agar README dapat membangun kedua proyek secara otomatis.
-
-💡 Tips: Jika mau versi README dalam bahasa lain selain Bahasa Indonesia, beri tahu saya dan saya akan siapkan terjemahan.
